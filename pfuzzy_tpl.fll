@@ -1,0 +1,24 @@
+Engine: fpeaks
+InputVariable: in1
+  enabled: true
+  range: -10.000 10.000
+  lock-range: false
+  IN1
+InputVariable: in2
+  enabled: true
+  range: -10.000 10.000
+  lock-range: false
+  IN2
+InputVariable: in3
+  enabled: true
+  range: -10.000 10.000
+  lock-range: false
+  IN3
+OUT
+RuleBlock: 
+  enabled: true
+  conjunction: AlgebraicProduct
+  disjunction: none
+  implication: none
+  activation: General
+  RULES
