@@ -82,13 +82,17 @@ class ANFIS:
             print(layerFive.shape)
   
             #error
-            error = self.Y-layerFive
+            #error = self.Y-layerFive
  
             #error = np.sum(error**2)
             # error = np.sum(np.square(self.Y-layerFive), axis=0)
             # error = np.sum(error)
+
+            error = np.linalg.norm(self.Y-layerFive)
+
             print('current error: '+ str(error))
-            error = np.average(np.absolute(self.Y-layerFive))
+            #error = np.average(np.absolute(self.Y-layerFive))
+
             print('current avg error: '+ str(error))
             self.errors = np.append(self.errors,error)
 
@@ -173,7 +177,8 @@ class ANFIS:
             print(self.trainingType)
         else:
             if len(self.errors) != 0:
-                return self.errors[len(self.errors)-1]
+                print("len X", len(self.X))
+                return (self.errors[len(self.errors)-1])/len(self.X)
 
     def plotMF(self, x, inputVar):
         import matplotlib.pyplot as plt
